@@ -5,9 +5,9 @@ Rails.application.routes.draw do
     get "/about" => "public/homes#about"
   end 
   
-  # namespaceを使用、adminのURLにはadminを表示するので、scopeで実装
-  scope :admin do
-    root to: "admin/homes#top"
+  # namespaceを使用、adminのURLにはadminを表示するので、namespaceで実装
+  namespace :admin do
+    root to: "homes#top"
     
   end 
 end
