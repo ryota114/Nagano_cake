@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # adminとcustomerのdeviseを作成
+  # adminとcustomerのdeviseを作成,アクションがかぶるので下記設定で
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
     passwords: 'admins/passwords',
