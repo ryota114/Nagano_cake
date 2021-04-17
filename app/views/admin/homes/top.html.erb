@@ -18,7 +18,7 @@
             <% @orders.each do |order| %>
             <tr>
                 <td>
-                    <%= link_to order.created_at.strftime("%Y-%m-%d %H:%M:%S"), admin_order_path(:id), class: "text-dark border-bottom border-dark" %>
+                    <%= link_to order.created_at.strftime("%Y-%m-%d %H:%M:%S"), admin_order_path(order), class: "text-dark border-bottom border-dark" %>
                 </td> 
                 <td><%= order.customer.first_name + order.customer.last_name %></td>
                 <!--概要：mapメソッドを使用して、１つの注文に対する各商品の注文個数の合計を返している-->

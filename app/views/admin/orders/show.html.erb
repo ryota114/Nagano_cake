@@ -6,7 +6,61 @@
       注文履歴詳細
     </div>
   </div>
-  <div class="row">
-    
+  
+  <!--購入者の表示-->
+  <div class="row mb-2">
+    <div class="col-2">
+      購入者
+    </div>
+    <div class="col-10">
+      <%= link_to @order.customer.first_name + " " + @order.customer.last_name, admin_customer_path(@order), class: "text-dark border-bottom border-dark" %>
+    </div>
   </div>
+  
+  <!--注文日の表示-->
+  <div class="row mb-2">
+    <div class="col-2">
+      注文日
+    </div>
+    <div class="col-10">
+      <%= @order.created_at.strftime("%Y/%m/%d") %>
+    </div>
+  </div>
+  
+  <!--配達先の表示-->
+  <div class="row mb-2">
+    <div class="col-2">
+      配送先
+    </div>
+    <div class="col-10">
+      <%= @order.address %></br>
+      <%= @order.name %>
+    </div>
+  </div>
+  
+  <!--支払い方法の表示-->
+  <div class="row mb-2">
+    <div class="col-2">
+      支払方法
+    </div>
+    <div class="col-10">
+      <%= @order.payment_method %>
+    </div>
+  </div>
+  
+  <!--注文ステータスの表示・更新ステータス-->
+  <div class="row mb-2">
+    <div class="col-2">
+      注文ステータス
+    </div>
+    <div class="col-10">
+      <%= form_with model:[:admin,@order], local:true do |f| %>
+        <div class="form-group">
+          <%= f.select :status, Order.statuses.keys %>
+          <%= f.submit "更新", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  
 </div>
