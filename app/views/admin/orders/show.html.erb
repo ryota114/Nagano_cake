@@ -1,9 +1,7 @@
-<h1>admin/orders/#show</h1>
-
 <div class="container-lg">
   <div class="row">
     <div class="col-2 bg-light text-center mb-2 ">
-      注文履歴詳細
+      <h5>注文履歴詳細</h5>
     </div>
   </div>
   
@@ -13,7 +11,7 @@
       購入者
     </div>
     <div class="col-10">
-      <%= link_to @order.customer.first_name + " " + @order.customer.last_name, admin_customer_path(@order), class: "text-dark border-bottom border-dark" %>
+      <%= link_to @order.customer.first_name + " " + @order.customer.last_name, admin_customer_path(@order.customer.id), class: "text-dark border-bottom border-dark" %>
     </div>
   </div>
   
