@@ -68,7 +68,7 @@
   
   <!--注文商品テーブル・商品合計・送料・請求合計-->
   <div class="row mb-2">
-    <div class="col-10">
+    <div class="col-9">
       <table class="table">
         <thead class="bg-light">
             <tr>
@@ -86,9 +86,9 @@
                 <td>
                     <%= od.item.name %>
                 </td> 
-                <td><%= od.price %></td>
-                <td><%= od.amount %></td>
-                <td><%= (od.price * od.amount) %></td>
+                <td><%= (od.price).to_s(:delimited) %></td>
+                <td><%= (od.amount).to_s(:delimited) %></td>
+                <td><%= (od.price * od.amount).to_s(:delimited) %></td>
                 <td>
                   <%= form_with model:[:admin,od], local:true do |f| %>
                     <div class="form-group">
@@ -100,8 +100,16 @@
             </tr>
             <% end %>
         </tbody>
-    </table>
-      
+      </table>
+    </div>
+    <div class="col-3">
+      <table class="table table-borderless">
+        <!--横向きテーブルの作成-->
+        <thead>
+            <tr><th>商品合計</th><td><%= (@order.total_payment).to_s(:delimited) %>円</td></tr>
+            <tr><th>送料</th><td><%= (@order.shipping_cost).to_s(:delimited) %>円</td></tr>
+            <tr><th>請求金額合計</th><td><%= (@order.total_payment + @order.shipping_cost).to_s(:delimited) %>円</td></tr>
+        </thead>
     </div>
   </div>
   
