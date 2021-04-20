@@ -1,6 +1,8 @@
 class Admin::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
+    # OrderモデルとOrderDetailsはhas_manyとbelongs_toの関係
+    @order_details = @order.order_details
   end 
   
   def update

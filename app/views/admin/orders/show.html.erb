@@ -48,19 +48,62 @@
     </div>
   </div>
   
-  <!--注文ステータスの表示・更新ステータス-->
+  <!--注文ステータスの表示・更新-->
   <div class="row mb-2">
     <div class="col-2">
       注文ステータス
     </div>
     <div class="col-10">
+      <!--orderscontrollerはadminにネストしているのでforom_withでパスの指示が必要-->
+      <!--f.selectでenumに設定した項目をformで表示している-->
+      <!--f.select :カラム名, モデル.カラム（複数形）.keys -->
       <%= form_with model:[:admin,@order], local:true do |f| %>
         <div class="form-group">
           <%= f.select :status, Order.statuses.keys %>
-          <%= f.submit "更新", class: "btn btn-primary" %>
+          <%= f.submit "更新", class: "btn btn-success ml-3" %>
         </div>
       <% end %>
     </div>
   </div>
+  
+  <!--注文商品テーブル・商品合計・送料・請求合計-->
+  <div class="row mb-2">
+    <div class="col-10">
+      <table class="table">
+        <thead class="bg-light">
+            <tr>
+                <th>商品名</th>
+                <th>単価（税込）</th>
+                <th>数量</th>
+                <th>小計</th>
+                <th>制作ステータス</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--Orderに含まれるorderdetailの数だけ表示-->
+            <% @order_details.each do |od| %>
+            <tr>
+                <td>
+                    <%= od.item.name %>
+                </td> 
+                <td><%= od.price %></td>
+                <td><%= od.amount %></td>
+                <td><%= (od.price * od.amount) %></td>
+                <td>
+                  <%= form_with model:[:admin,od], local:true do |f| %>
+                    <div class="form-group">
+                      <%= f.select :making_status, OrderDetail.making_statuses.keys %>
+                      <%= f.submit "更新", class: "btn btn-success ml-3" %>
+                    </div>
+                  <% end %>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+      
+    </div>
+  </div>
+  
   
 </div>
