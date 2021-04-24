@@ -28,12 +28,142 @@
     last_name: "栄螺",
     first_name: "磯野",
     last_name_kana: "サザエ",
-    first_name_kana: "磯野",
+    first_name_kana: "イソノ",
     email: "sazae@gmail.com",
     password: "sazasaza",
     postal_code: "6740000",
     address: "兵庫県明石市",
-    telephone_number: "00000000002",
+    telephone_number: "00000000000",
+    is_deleted: "false"
+  )
+  
+  Customer.create!(
+    last_name: "厚",
+    first_name: "砂糖",
+    last_name_kana: "アツシ",
+    first_name_kana: "サトウ",
+    email: "satou@gmail.com",
+    password: "satosato",
+    postal_code: "5550004",
+    address: "大阪府高槻市天国地獄",
+    telephone_number: "00000000231",
+    is_deleted: "false"
+  )
+  
+  Customer.create!(
+    last_name: "鰹",
+    first_name: "磯野",
+    last_name_kana: "カツオ",
+    first_name_kana: "イソノ",
+    email: "katuo@gmail.com",
+    password: "katukatu",
+    postal_code: "6740000",
+    address: "兵庫県明石市",
+    telephone_number: "00000000000",
+    is_deleted: "false"
+  )
+  
+  Customer.create!(
+    last_name: "徹",
+    first_name: "谷山",
+    last_name_kana: "トオル",
+    first_name_kana: "タニヤマ",
+    email: "tani@gmail.com",
+    password: "tanitani",
+    postal_code: "5550034",
+    address: "大阪府高槻市摂津リベールマンション99-456-332-291",
+    telephone_number: "00000023231",
+    is_deleted: "false"
+  )
+  
+  Customer.create!(
+    last_name: "多羅尾",
+    first_name: "磯野",
+    last_name_kana: "タラオ",
+    first_name_kana: "イソノ",
+    email: "tara@gmail.com",
+    password: "taratara",
+    postal_code: "6740000",
+    address: "兵庫県明石市",
+    telephone_number: "00000000000",
+    is_deleted: "false"
+  )
+  
+  Customer.create!(
+    last_name: "神奈",
+    first_name: "山田",
+    last_name_kana: "カンナ",
+    first_name_kana: "ヤマダ",
+    email: "kannna@gmail.com",
+    password: "kannkann",
+    postal_code: "5550000",
+    address: "大阪府高槻市",
+    telephone_number: "00000000001",
+    is_deleted: "false"
+  )
+  
+  Customer.create!(
+    last_name: "増尾",
+    first_name: "磯野",
+    last_name_kana: "マスオ",
+    first_name_kana: "イソノ",
+    email: "masuo@gmail.com",
+    password: "masumasu",
+    postal_code: "6740000",
+    address: "兵庫県明石市",
+    telephone_number: "00000000000",
+    is_deleted: "false"
+  )
+  
+  Customer.create!(
+    last_name: "玲奈",
+    first_name: "砂糖",
+    last_name_kana: "レナ",
+    first_name_kana: "サトウ",
+    email: "rena@gmail.com",
+    password: "renarena",
+    postal_code: "5550004",
+    address: "大阪府高槻市天国地獄",
+    telephone_number: "00000000231",
+    is_deleted: "false"
+  )
+  
+  Customer.create!(
+    last_name: "舟",
+    first_name: "磯野",
+    last_name_kana: "フネ",
+    first_name_kana: "イソノ",
+    email: "fune@gmail.com",
+    password: "funefune",
+    postal_code: "6740000",
+    address: "兵庫県明石市",
+    telephone_number: "00000000000",
+    is_deleted: "false"
+  )
+  
+  Customer.create!(
+    last_name: "薫",
+    first_name: "谷山",
+    last_name_kana: "カオル",
+    first_name_kana: "タニヤマ",
+    email: "kaoru@gmail.com",
+    password: "kaokao",
+    postal_code: "5550034",
+    address: "大阪府高槻市摂津リベールマンション99-456-332-291",
+    telephone_number: "00000023231",
+    is_deleted: "false"
+  )
+  
+  Customer.create!(
+    last_name: "波平",
+    first_name: "磯野",
+    last_name_kana: "ナミヘイ",
+    first_name_kana: "イソノ",
+    email: "namihei@gmail.com",
+    password: "naminami",
+    postal_code: "6740000",
+    address: "兵庫県明石市",
+    telephone_number: "00000000000",
     is_deleted: "false"
   )
   

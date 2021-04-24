@@ -1,1 +1,42 @@
-<h1>admin/customers/#index</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-auto bg-light text-center mb-2">
+      <h5>会員一覧</h5>
+    </div>
+  </div>
+  
+  <!--テーブルメソッドを使用して一覧の繰り返し表示-->
+  <div class="row">
+    <table class="table">
+      <thead class="bg-light">
+        <tr>
+          <th>会員ID</th><th style="text-decoration: underline">氏名</th><th>メールアドレス</th><th>ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @customers.each do |customer| %>
+          <tr>
+            <td><%= customer.id %></td>
+            <td><%= link_to customer.first_name + customer.last_name, admin_customer_path(customer.id), class: "text-dark border-bottom border-dark"%></td>
+            <td><%= customer.email %></td>
+            <td>
+              <% if customer.is_deleted == false %>
+                <div class="text-success">有効</div>
+              <% else %>
+                <div class="text-secondary">無効</div>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  
+  <!--ページネイト-->
+  <div class="row">
+        <div class="mx-auto">
+            <%= paginate @customers %>
+        </div>
+    </div>
+  
+</div>
