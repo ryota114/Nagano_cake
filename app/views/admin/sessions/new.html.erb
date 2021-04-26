@@ -1,30 +1,28 @@
-<div class="row">
-  <div class="col-3 aligns-items-center">
-    <span class="bg-light pl-3 pr-3">管理者ログイン</span>
+<div class="container">
+  <div class="row">
+    <div class="col-auto bg-light text-center my-2">
+      <h5>管理者ログイン</h5>
+    </div>
   </div>
+
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <table class="table table-borderless">
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= f.email_field :email, autofocus: true,placeholder:"sample@example.com", autocomplete: "email", size: "40" %></td>
+        </tr>
+        <tr>
+          <th>パスワード</th>
+          <td><%= f.password_field :password, autocomplete: "current-password", size: "40" %></td>
+        </tr>
+        <tr>
+          <td></td><td><%= f.submit "ログイン", class: "btn btn-info" %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <% end %>
 </div>
-
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field row mx-auto aligns-items-center ">
-    <div class="col-auto pr-5 ">
-      <%= f.label "メールアドレス" %>
-    </div>
-    <div class="col-auto">
-      <%= f.email_field :email, autofocus: true,placeholder:"sample@example.com", autocomplete: "email" %>
-    </div>
-  </div>
-
-  <div class="field row mx-auto aligns-items-center">
-    <div class="col-auto pr-5">
-      <%= f.label "パスワード" %>
-    </div>
-    <div class="col-auto pr-5">
-      <%= f.password_field :password, autocomplete: "current-password" %>
-    </div>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "ログイン", class: "btn btn-info" %>
-  </div>
-<% end %>

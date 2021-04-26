@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
   # adminとcustomerのdeviseを作成,アクションがかぶるので下記設定で整えた
-  devise_for :admin, controllers: {
-    sessions: 'admin/sessions',
-    passwords: 'admin/passwords',
-    registrations: 'admin/registrations'
-  }
+  devise_for :admin, :skip => [:registrations, :password],
+                      controllers: {sessions: 'admin/sessions'}
   
   devise_for :customers, controllers: {
     sessions: 'customers/sessions',
