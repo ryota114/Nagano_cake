@@ -1,1 +1,52 @@
-<h1>admin/items/#index</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2 bg-light text-center my-4">
+      <h5>商品一覧</h5>
+    </div>
+  
+    
+    <!--font-awesome　＋マークの新規作成リンク-->
+    <div class="col-md-1 offset-md-9 pull-right d-flex align-items-center">
+      <%= link_to new_admin_item_path,style: "color:gray" do %>
+        <i class="fas fa-plus-circle fa-2x"></i>
+      <% end %>
+    </div>
+  </div>
+  
+  <!--テーブルメソッドを使用して一覧の繰り返し表示-->
+  <div class="row">
+    <table class="table">
+      <thead class="bg-light">
+        <tr>
+          <th class="border-dark">商品ID</th><th class="border-dark">商品名</th>
+          <th class="border-dark">税抜価格</th><th class="border-dark">ジャンル</th><th class="border-dark">ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @items.each do |item| %>
+          <tr>
+            <td class="border-bottom border-dark"><%= item.id %></td>
+            <td class="border-bottom border-dark"><%= link_to item.name, admin_item_path(item.id), class: "text-dark border-bottom border-dark"%></td>
+            <td class="border-bottom border-dark"><%= item.price %></td>
+            <td class="border-bottom border-dark"><%= item.genre.name %></td>
+            <td class="border-bottom border-dark">
+              <% if item.is_active == true %>
+                <div class="text-success">販売中</div>
+              <% else %>
+                <div class="text-secondary">販売停止中</div>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  
+  <!--ページネイト-->
+  <div class="row">
+    <div class="mx-auto">
+      <%= paginate @items %>
+    </div>
+  </div>
+  
+</div>
