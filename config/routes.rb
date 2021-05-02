@@ -16,7 +16,19 @@ Rails.application.routes.draw do
     # get "/items" => "public/items#index"
     resources :items, only: [ :index,:show ], module: :public
     resources :customers, only: [ :show, :edit, :update ], module: :public
-    resources :cart_items, only: [ :index, :update, :create, :destroy ], module: :public
+    resources :orders, only: [ :new, :create, :index, :show ], module: :public do
+      # resourcesを使用したコントローラーにルートを追加する方法の１つ、collectionを使用
+      collection do
+        post "confirm"
+        get "conplete"
+      end 
+    end 
+    resources :cart_items, only: [ :index, :update, :create, :destroy ], module: :public do
+      # resourcesを使用したコントローラーにルートを追加する方法の１つ、collectionを使用
+      collection do
+        delete "destroy_all"
+      end 
+    end 
   end 
   
   # namespaceを使用、adminのURLにはadminを表示するので、namespaceで実装
