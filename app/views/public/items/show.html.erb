@@ -1,1 +1,31 @@
-<h1>public/items/#show</h1>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-3 offset-md-1 mr-2">
+      <%= attachment_image_tag @item, :image, :fill, 200, 150, format: 'jpeg', fallback: "no_image.jpg", size: "200x150" %>
+    </div>
+    <div class="col-md-6 text-wrap">
+      <div class="row">
+        <h5><strong><%= @item.name %></strong></h5>
+      </div>
+      <div class="row">
+        <p class="text-break"><%= @item.introduction %></p>
+      </div>
+      <div class="row">
+        <h5><strong>¥<%= (@item.price * 1.1).floor.to_s(:delimited) %></strong></h5><p><small>(税込)</small></p>
+      </div>
+      <!--@cart_itemはpulic/cart_items.controllerで定義されているので、urlを指定する-->
+      <%= form_with model: @cart_item, url: {controller: "cart_items", action: "create" }, local:true do |f| %>
+        <div class="row mt-2">
+          <div class="col-md-3">
+            <!--f.hidden_fieldで表示しないが、cart_itemテーブルのitem_idカラムにitem.idを渡せるようにする-->
+            <%= f.hidden_field :item_id, :value => @item.id %>
+            <%= f.select :amount, options_for_select(1..10), prompt: "個数選択 " %>
+          </div>
+          <div class="col-md-3">
+            <%= f.submit "カートに入れる", class: "btn btn-success px-3" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     # get "/items" => "public/items#index"
     resources :items, only: [ :index,:show ], module: :public
     resources :customers, only: [ :show, :edit, :update ], module: :public
-    resources :cart_items, only: [ :index, :update ], module: :public
+    resources :cart_items, only: [ :index, :update, :create, :destroy ], module: :public
   end 
   
   # namespaceを使用、adminのURLにはadminを表示するので、namespaceで実装
