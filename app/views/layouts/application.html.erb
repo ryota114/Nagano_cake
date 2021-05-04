@@ -28,7 +28,7 @@
               <% if customer_signed_in? %>
                 <!--do endを用いてfontawesomeアイコンと文字を表示する方法-->
                 <li class="nav-item mr-4">
-                  ようこそ、<%= current_customer.first_name %>さん！
+                  ようこそ、<%= current_customer.last_name %>さん！
                 </li>
                 <li class="nav-item">
                   <%= link_to "マイページ", customer_path(current_customer.id), class: 'btn btn-outline-secondary mr-5 nav-link' %>

@@ -12,10 +12,10 @@
   )
   
   Customer.create!(
-    last_name: "太郎",
-    first_name: "山田",
-    last_name_kana: "タロウ",
-    first_name_kana: "ヤマダ",
+    last_name: "山田",
+    first_name: "太郎",
+    last_name_kana: "ヤマダ",
+    first_name_kana: "タロウ",
     email: "tarou@gmail.com",
     password: "tarotaro",
     postal_code: "5550000",
@@ -25,10 +25,10 @@
   )
   
   Customer.create!(
-    last_name: "栄螺",
-    first_name: "磯野",
-    last_name_kana: "サザエ",
-    first_name_kana: "イソノ",
+    last_name: "磯野",
+    first_name: "栄螺",
+    last_name_kana: "イソノ",
+    first_name_kana: "サザエ",
     email: "sazae@gmail.com",
     password: "sazasaza",
     postal_code: "6740000",
@@ -38,10 +38,10 @@
   )
   
   Customer.create!(
-    last_name: "厚",
-    first_name: "砂糖",
-    last_name_kana: "アツシ",
-    first_name_kana: "サトウ",
+    last_name: "砂糖",
+    first_name: "厚",
+    last_name_kana: "サトウ",
+    first_name_kana: "アツシ",
     email: "satou@gmail.com",
     password: "satosato",
     postal_code: "5550004",
@@ -51,10 +51,10 @@
   )
   
   Customer.create!(
-    last_name: "鰹",
-    first_name: "磯野",
-    last_name_kana: "カツオ",
-    first_name_kana: "イソノ",
+    last_name: "磯野",
+    first_name: "鰹",
+    last_name_kana: "イソノ",
+    first_name_kana: "カツオ",
     email: "katuo@gmail.com",
     password: "katukatu",
     postal_code: "6740000",
@@ -64,10 +64,10 @@
   )
   
   Customer.create!(
-    last_name: "徹",
-    first_name: "谷山",
-    last_name_kana: "トオル",
-    first_name_kana: "タニヤマ",
+    last_name: "谷山",
+    first_name: "徹",
+    last_name_kana: "タニヤマ",
+    first_name_kana: "トオル",
     email: "tani@gmail.com",
     password: "tanitani",
     postal_code: "5550034",
@@ -77,10 +77,10 @@
   )
   
   Customer.create!(
-    last_name: "多羅尾",
-    first_name: "磯野",
-    last_name_kana: "タラオ",
-    first_name_kana: "イソノ",
+    last_name: "磯野",
+    first_name: "多羅尾",
+    last_name_kana: "イソノ",
+    first_name_kana: "タラオ",
     email: "tara@gmail.com",
     password: "taratara",
     postal_code: "6740000",
@@ -90,10 +90,10 @@
   )
   
   Customer.create!(
-    last_name: "神奈",
-    first_name: "山田",
-    last_name_kana: "カンナ",
-    first_name_kana: "ヤマダ",
+    last_name: "山田",
+    first_name: "神奈",
+    last_name_kana: "ヤマダ",
+    first_name_kana: "カンナ",
     email: "kannna@gmail.com",
     password: "kannkann",
     postal_code: "5550000",
@@ -103,10 +103,10 @@
   )
   
   Customer.create!(
-    last_name: "増尾",
-    first_name: "磯野",
-    last_name_kana: "マスオ",
-    first_name_kana: "イソノ",
+    last_name: "磯野",
+    first_name: "増尾",
+    last_name_kana: "イソノ",
+    first_name_kana: "マスオ",
     email: "masuo@gmail.com",
     password: "masumasu",
     postal_code: "6740000",
@@ -116,10 +116,10 @@
   )
   
   Customer.create!(
-    last_name: "玲奈",
-    first_name: "砂糖",
-    last_name_kana: "レナ",
-    first_name_kana: "サトウ",
+    last_name: "砂糖",
+    first_name: "玲奈",
+    last_name_kana: "サトウ",
+    first_name_kana: "レナ",
     email: "rena@gmail.com",
     password: "renarena",
     postal_code: "5550004",
@@ -129,10 +129,10 @@
   )
   
   Customer.create!(
-    last_name: "舟",
-    first_name: "磯野",
-    last_name_kana: "フネ",
-    first_name_kana: "イソノ",
+    last_name: "磯野",
+    first_name: "舟",
+    last_name_kana: "イソノ",
+    first_name_kana: "フネ",
     email: "fune@gmail.com",
     password: "funefune",
     postal_code: "6740000",
@@ -142,10 +142,10 @@
   )
   
   Customer.create!(
-    last_name: "薫",
-    first_name: "谷山",
-    last_name_kana: "カオル",
-    first_name_kana: "タニヤマ",
+    last_name: "谷山",
+    first_name: "薫",
+    last_name_kana: "タニヤマ",
+    first_name_kana: "カオル",
     email: "kaoru@gmail.com",
     password: "kaokao",
     postal_code: "5550034",
@@ -155,10 +155,10 @@
   )
   
   Customer.create!(
-    last_name: "波平",
-    first_name: "磯野",
-    last_name_kana: "ナミヘイ",
-    first_name_kana: "イソノ",
+    last_name: "磯野",
+    first_name: "波平",
+    last_name_kana: "イソノ",
+    first_name_kana: "ナミヘイ",
     email: "namihei@gmail.com",
     password: "naminami",
     postal_code: "6740000",

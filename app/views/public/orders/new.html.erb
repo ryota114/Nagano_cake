@@ -1,1 +1,67 @@
-public/orders/new
+<div class="container">
+  <div class="row my-3">
+    <div class="col-md-3  bg-light text-center mb-2">
+      <h5>注文情報入力</h5>
+    </div>
+  </div>
+  
+  <%= form_with model: @order, local:true do |f| %>
+    <!--支払方法ラジオボタン-->
+    <div>
+      <p class="mb-1"><strong>支払方法</strong></p>
+      <div class="button-group ml-4">
+        <%= f.radio_button :payment_method, "0", :checked => true %>
+        <%= f.label :payment_method, "クレジットカード", value: "0" %><br/>
+        <%= f.radio_button :payment_method, "1" %>
+        <%= f.label :payment_method, "銀行振込", value: "1" %>
+      </div>
+    </div>
+    
+    
+    <!--お届け先ラジオボタンタグで分岐をコントローラーへ送る-->
+    <div>
+      <p class="mt-4 mb-1"><strong>お届け先</strong></p>
+      <!--自分の住所-->
+      <div class="button-group ml-4">
+        <%= radio_button_tag "select_address", 0, :checked => true %> <!--0を値として返す-->
+        <%= label_tag "select_address_0", "ご自身の住所", class: "mb-0" %>
+        <p class="mb-0 ml-4">〒<%= @order.customer.postal_code %> <%= @order.customer.address %></p>
+        <p class="ml-4"><%= @order.customer.last_name %><%= @order.customer.first_name %></p>
+      </div>
+        
+      <!--登録先住所から選択-->
+      <!--自分の住所-->
+      <div class="button-group ml-4 mt-2">
+        <%= radio_button_tag "select_address", 1 %> <!--1を値として返す-->
+        <%= label_tag "select_address_1", "登録済住所から選択", class: "mb-0" %>
+        <div class="ml-4">
+          <!--:use_addressはaddressのmodelに定義(カラムを連結表示する)-->
+          <%= f.collection_select :address_id, @addresses, :id, :use_address %>  
+        </div>
+      </div>
+        
+      <!--新しい届け先-->
+      <div class="buttn-group ml-4 mt-3">
+        <%= radio_button_tag "select_address", 2 %> <!--2を値として返す-->
+        <%= label_tag "select_address_2", "新しいお届け先", class: "mb-0" %>
+        <div class="ml-4 form-inline">
+          <%= f.label :postal_code, "郵便番号(ハイフンなし)", class: "col-md-3" %>
+          <%= f.text_field :postal_code, placeholder: "0000000", class: "col-md-3 my-1" %>
+        </div>
+        <div class="ml-4 form-inline">
+          <%= f.label :address, "住所", class: "col-md-3" %>
+          <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class: "col-md-5 my-1" %>
+        </div>
+        <div class="ml-4 form-inline">
+          <%= f.label :name, "宛名", class: "col-md-3" %>
+          <%= f.text_field :name, placeholder: "令和道子", class: "col-md-3 my-1" %>
+        </div>
+      </div>
+    </div> 
+    
+    <div class="row">
+      <%= f.submit "確認画面へ進む", class: "btn btn-primary mx-auto px-3 my-3" %>
+    </div>
+  <% end %>
+  
+</div>
