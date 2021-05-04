@@ -5,15 +5,16 @@
     </div>
   </div>
   
-  <%= form_with model: @order, local:true do |f| %>
+  <%= form_with model: @order, url: {action: "confirm" }, local:true do |f| %>
     <!--支払方法ラジオボタン-->
     <div>
       <p class="mb-1"><strong>支払方法</strong></p>
       <div class="button-group ml-4">
-        <%= f.radio_button :payment_method, "0", :checked => true %>
-        <%= f.label :payment_method, "クレジットカード", value: "0" %><br/>
-        <%= f.radio_button :payment_method, "1" %>
-        <%= f.label :payment_method, "銀行振込", value: "1" %>
+        <!--値に数値（0,1）を入れるとエラーが出たので、radio_buttonの値をクレジットカードとした-->
+        <%= f.radio_button :payment_method, "クレジットカード", :checked => true %>
+        <%= f.label :payment_method, "クレジットカード", value: "クレジットカード" %><br/>
+        <%= f.radio_button :payment_method, "銀行振込" %>
+        <%= f.label :payment_method, "銀行振込", value: "銀行振込" %>
       </div>
     </div>
     
@@ -30,7 +31,6 @@
       </div>
         
       <!--登録先住所から選択-->
-      <!--自分の住所-->
       <div class="button-group ml-4 mt-2">
         <%= radio_button_tag "select_address", 1 %> <!--1を値として返す-->
         <%= label_tag "select_address_1", "登録済住所から選択", class: "mb-0" %>
