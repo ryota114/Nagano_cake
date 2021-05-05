@@ -20,7 +20,7 @@ Rails.application.routes.draw do
       # resourcesを使用したコントローラーにルートを追加する方法の１つ、collectionを使用
       collection do
         post "confirm"
-        get "conplete"
+        get "complete"
       end 
     end 
     resources :cart_items, only: [ :index, :update, :create, :destroy ], module: :public do
