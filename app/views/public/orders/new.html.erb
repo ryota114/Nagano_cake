@@ -36,7 +36,7 @@
         <%= label_tag "select_address_1", "登録済住所から選択", class: "mb-0" %>
         <div class="ml-4">
           <!--:use_addressはaddressのmodelに定義(カラムを連結表示する)-->
-          <%= f.collection_select :address_id, @addresses, :id, :use_address %>  
+          <%= f.collection_select :address_id, @addresses, :id, :use_address, include_blank: "選択してください" %>  
         </div>
       </div>
         
@@ -61,6 +61,10 @@
     
     <div class="row">
       <%= f.submit "確認画面へ進む", class: "btn btn-primary mx-auto px-3 my-3" %>
+    </div>
+    
+    <div class="row">
+      <% unless flash[:error] == nil %><span class="deviseval alert alert-danger"><%= flash[:error] %></span><% end %>
     </div>
   <% end %>
   

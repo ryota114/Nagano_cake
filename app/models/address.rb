@@ -3,7 +3,7 @@ class Address < ApplicationRecord
   
   # public/orders/new.htmlでカラムをつなげた表示をするためにmodelで定義する
   def use_address
-    〒 + self.postal_code + self.address + self.name
+    "〒" + self.postal_code + self.address + self.name
   end 
   
 end

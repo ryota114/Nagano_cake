@@ -2,7 +2,7 @@ class Public::OrdersController < ApplicationController
   def new 
     @order = Order.new
     @order.customer_id = current_customer.id
-    @addresses = Address.all
+    @addresses = Address.where(customer_id: current_customer.id)
   end
   
   def confirm
@@ -22,8 +22,38 @@ class Public::OrdersController < ApplicationController
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
       @order.name = current_customer.last_name + current_customer.first_name
-    elsif params[:select_address] == ""
-      
+    elsif params[:select_address] == "1"
+      # 選択した住所が空白の場合とそれ以外
+      # params[:order][:address]の[:order]はnew.htmlのform_withが@orderに依存しているので
+      # [:order]のパラメータの一部としてaddress_idが返っているので定義する必要がある
+      if params[:order][:address_id].blank?
+        @order = Order.new
+        @order.customer_id = current_customer.id
+        @addresses = Address.all
+        flash[:error] = "住所が選ばれていません"
+        render :new
+      else
+        @address = current_customer.addresses.find(params[:order][:address_id])
+        @order.postal_code = @address.postal_code
+        @order.address = @address.address
+        @order.name = @address.name
+      end 
+    elsif params[:select_address] == "2"
+      # 新しいお届け先の情報に空欄がある場合と全ての項目が埋められている場合
+      if @order.postal_code.blank? || @order.address.blank? || @order.name.blank?
+        @order = Order.new
+        @order.customer_id = current_customer.id
+        @addresses = Address.all
+        flash[:error] = "空欄があります"
+        render :new
+      else
+        @address = Address.new(address_params)
+        @address.customer_id = current_customer.id
+        @address.name = @order.name
+        @address.postal_code = @order.postal_code
+        @address.address = @order.address
+        @address.save
+      end 
     end
   end
   
@@ -68,4 +98,7 @@ class Public::OrdersController < ApplicationController
     params.permit(:item_id, :order_id, :price, :amount, :making_status)
   end 
   
+  def address_params
+    params.permit(:name, :postal_code, :address)
+  end
 end
