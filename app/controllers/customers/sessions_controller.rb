@@ -32,4 +32,17 @@ class Customers::SessionsController < Devise::SessionsController
     end
   end
   
+  # ログイン時に下記判定するように指示
+  before_action :reject_inactive_customer, only: [:create]
+  
+  def reject_inactive_customer
+    @customer = Customer.find_by(email: params[:customer][:email])
+    if @customer
+      if @customer.valid_password?(params[:customer][:password]) && @customer.is_deleted
+        flash[:error] = 'このアカウントは退会済みです。別のメールアドレスをご登録ください。'
+        redirect_to new_customer_session_path
+      end 
+    end 
+  end 
+  
 end

@@ -16,8 +16,16 @@ Rails.application.routes.draw do
     get "/customers/my_page" => "public/customers#show", as: "my_page"
     # get "/items" => "public/items#index"
     resources :items, only: [ :index,:show ], module: :public
-    resources :customers, only: [ :edit, :update ], module: :public
     resources :addresses, only: [ :index, :edit ], module: :public
+    
+    resources :customers, only: [ :edit, :update ], module: :public do
+      # resourcesを使用したコントローラーにルートを追加する方法の１つ、collectionを使用
+      collection do
+        get "unsubscribe"
+        patch "withdraw"
+      end 
+    end 
+    
     resources :orders, only: [ :new, :create, :index, :show ], module: :public do
       # resourcesを使用したコントローラーにルートを追加する方法の１つ、collectionを使用
       collection do
@@ -25,6 +33,7 @@ Rails.application.routes.draw do
         get "complete"
       end 
     end 
+    
     resources :cart_items, only: [ :index, :update, :create, :destroy ], module: :public do
       # resourcesを使用したコントローラーにルートを追加する方法の１つ、collectionを使用
       collection do
