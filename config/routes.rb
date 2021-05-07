@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     get "/customers/my_page" => "public/customers#show", as: "my_page"
     # get "/items" => "public/items#index"
     resources :items, only: [ :index,:show ], module: :public
-    resources :addresses, only: [ :index, :edit ], module: :public
+    resources :addresses, only: [ :index, :create, :edit, :update, :destroy ], module: :public
     
     resources :customers, only: [ :edit, :update ], module: :public do
       # resourcesを使用したコントローラーにルートを追加する方法の１つ、collectionを使用

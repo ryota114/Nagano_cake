@@ -35,6 +35,8 @@ class Customers::SessionsController < Devise::SessionsController
   # ログイン時に下記判定するように指示
   before_action :reject_inactive_customer, only: [:create]
   
+  # もしcustomerのログインがあれば、アクティブなpasswordと、is_deletedのステータス(退会)によって
+  # ログインさせず、エラーを吐く
   def reject_inactive_customer
     @customer = Customer.find_by(email: params[:customer][:email])
     if @customer
