@@ -1,4 +1,6 @@
 class Public::CustomersController < ApplicationController
+  before_action :authenticate_customer!
+  
   def show
     @customer = Customer.find(current_customer.id)
   end 
@@ -19,7 +21,6 @@ class Public::CustomersController < ApplicationController
   def withdraw
     @customer = Customer.find(current_customer.id)
     @customer.update(is_deleted: true)
-    pp @customer
     # ログアウトさせる
     reset_session
     redirect_to root_path

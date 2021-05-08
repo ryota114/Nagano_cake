@@ -1,4 +1,6 @@
 class Admin::OrderDetailsController < ApplicationController
+  before_action :authenticate_admin!
+  
   def update
     # viewで更新を押すと該当のidが返されるので、OrerDetailのidを読み取り変数に入れる
     # redirect先はorderdetail（各注文商品）の大本である注文ページを指定

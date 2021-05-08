@@ -63,7 +63,7 @@ class Customers::RegistrationsController < Devise::RegistrationsController
   # customerが新規作成後のリダイレクト先
   def after_sign_up_path_for(resource_or_scope)
     if resource_or_scope.is_a?(Customer)
-      customer_path(current_customer.id)
+      my_page_path
     end
   end
   

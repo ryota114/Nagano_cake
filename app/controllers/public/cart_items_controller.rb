@@ -1,4 +1,6 @@
 class Public::CartItemsController < ApplicationController
+  before_action :authenticate_customer!
+  
   def index
     # whereメソッドで現在のカスタマーのcart_itemをもってくる
     @cart_items = CartItem.where(customer_id: current_customer.id)
